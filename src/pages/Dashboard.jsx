@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import WeatherWidget from "../components/WeatherWidget";
 import NewsWidget from "../components/NewsWidget";
 export default function Dashboard() {
@@ -11,8 +11,12 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
             {/* Decorative background blobs */}
-            <div className="fixed top-0 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-            <div className="fixed bottom-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="fixed top-0 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse pointer-events-none"></div>
+
+            <div
+                className="fixed bottom-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse pointer-events-none"
+                style={{ animationDelay: "2s" }}
+            ></div>
 
             {/* Header */}
             <div className="relative bg-white/80 backdrop-blur-sm border-b border-white/20 shadow-lg">
@@ -38,6 +42,16 @@ export default function Dashboard() {
                     </button>
                 </div>
             </div>
+
+            <div className="p-4">
+                <button
+                    onClick={() => navigate("/countries")}
+                    className="bg-green-600 text-white px-4 py-2 rounded"
+                >
+                    Explore Countries
+                </button>
+            </div>
+
 
             {/* Main Content */}
             <div className="relative max-w-7xl mx-auto p-6">
