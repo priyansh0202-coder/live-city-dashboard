@@ -13,14 +13,22 @@ export default function Countries() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchCountries()
-            .then(data => {
-                setCountries(data);
-                setFiltered(data);
-            })
-            .catch(() => setError("Failed to load countries"))
-            .finally(() => setLoading(false));
+        fetchData();
     }, []);
+    
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const data = await fetchCountries();
+            setCountries(data);
+            setFiltered(data);
+        } catch {
+            setError("Failed to load countries");
+        } finally {
+            setLoading(false);
+        }
+    };
+
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -33,7 +41,7 @@ export default function Countries() {
 
     }, [search, countries]);
       
-
+console.log(countries, "countries");
     return (
         <div className="min-h-screen bg-gray-100">
             {/* Header */}
