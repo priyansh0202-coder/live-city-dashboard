@@ -1,16 +1,70 @@
-# React + Vite
+# 🌆 Live City Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React.js web application that displays live city-related data including weather, news, country information, real-time notes, and WebSocket-based notifications.  
+This project demonstrates frontend fundamentals, API handling, authentication, real-time systems, and clean UI design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🔐 Authentication & Session Handling
+- Login using DummyJSON public API
+- Token-based session persistence using localStorage
+- Auto-login if session exists
+- Protected routes (Dashboard, Countries, Live Notes)
+- Logout with session clear
+- Meaningful error messages for invalid login
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🌦 Weather Widget
+- Real-time weather data using OpenWeatherMap API
+- City-based weather display
+- Loading and error states
 
-## Expanding the ESLint configuration
+### 📰 News Widget
+- Top headlines using GNews API
+- External links to full articles
+- Clean and responsive UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🌍 Country Explorer
+- Country data from REST Countries API
+- Search functionality
+- Responsive grid layout
+- Flags, population, and region details
+
+### 💬 Firebase Live Notes (Real-Time)
+- Firestore-based real-time notes/chat
+- Instant updates across multiple browsers
+- Username and timestamps
+- Proper real-time listener cleanup
+
+### 🔔 WebSocket Notifications
+- Native WebSocket implementation (no external libraries)
+- Real-time notification stream
+- Connection status indicator
+- Auto-reconnect logic
+- Simulated server-pushed events using public echo server
+
+---
+
+## 🛠 Tech Stack
+
+- React.js (Hooks only)
+- React Router DOM
+- Tailwind CSS
+- Axios
+- Firebase Firestore
+- Native WebSocket API
+- Vite
+
+---
+
+## 📂 Folder Structure
+
+src/
+├── components/
+├── pages/
+├── services/
+├── firebase/
+├── sockets/
+├── App.jsx
+└── main.jsx
