@@ -16,18 +16,15 @@ export default function NewsWidget() {
         try {
             setLoading(true);
             const res = await getTopNews();
-            if (!res || res.length === 0) {
-                setError("No news available");
-                setNews([]);
-                return;
-              }
             setNews(res);
-        } catch {
+        } catch (err) {
+            console.error("News fetch error:", err);
             setError("Failed to load news");
         } finally {
             setLoading(false);
         }
     };
+      
 
     if (loading) {
         return (
