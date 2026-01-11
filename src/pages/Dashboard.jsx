@@ -1,6 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import WeatherWidget from "../components/WeatherWidget";
 import NewsWidget from "../components/NewsWidget";
+import WebSocketPanel from "../components/WebSocketPanel";
 export default function Dashboard() {
     const navigate = useNavigate(), logout = () => {
         localStorage.clear();
@@ -43,15 +44,22 @@ export default function Dashboard() {
                 </div>
             </div>
 
-            <div className="p-4">
+            <div className="flex justify-center items-start gap-4 pt-4">
                 <button
                     onClick={() => navigate("/countries")}
                     className="bg-green-600 text-white px-4 py-2 rounded"
                 >
                     Explore Countries
                 </button>
+                <button
+                    onClick={() => navigate("/notes")}
+                    className="ml-4 bg-purple-600 text-white px-4 py-2 rounded"
+                >
+                    Live Notes
+                </button>
             </div>
 
+          
 
             {/* Main Content */}
             <div className="relative max-w-7xl mx-auto p-6">
@@ -64,6 +72,10 @@ export default function Dashboard() {
                     {/* News Card */}
                     <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-shadow duration-300">
                         <NewsWidget />
+                    </div>
+
+                    <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-shadow duration-300">
+                        <WebSocketPanel />
                     </div>
                 </div>
             </div>

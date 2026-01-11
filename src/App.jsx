@@ -3,6 +3,8 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Countries from "./pages/Countries";
+import LiveNotes from "./pages/LiveNotes";
+
 
 
 export default function App() {
@@ -23,6 +25,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <Countries />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notes"
+          element={
+            <ProtectedRoute>
+              <LiveNotes />
             </ProtectedRoute>
           }
         />
